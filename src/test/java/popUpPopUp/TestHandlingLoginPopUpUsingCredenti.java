@@ -1,25 +1,38 @@
 package popUpPopUp;
 
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+import utilities.ReusableMethods;
 import utilities.TestBase;
 
 import static utilities.TestBase.driver;
 
 
 public class TestHandlingLoginPopUpUsingCredenti{
+    public static WebDriver driver ;
     @BeforeEach
     public void setUp(){
         driver = TestBase.createDriver() ;
     }
+    @AfterEach
+    public void tearDown(){
+        ReusableMethods.bekle(3);
+        driver.quit();
+    }
+    @org.junit.jupiter.api.Test
 
 
     @Test
-    public void testHandlingLoginPopUpUsingCredentials() {
+    public void testHandlingLogwinPopUpUsingCredentials() {
         String URL = "https://" + "admin" + ":" + "admin" + "@the-internet.herokuapp.com/basic_auth";
         driver.get(URL);
+        ReusableMethods.bekle(5);
+        // https://admin:admin@the-internet.herokuapp.com/basic_auth
+        // https://the-internet.herokuapp.com/basic_auth
 
 
         String title = driver.getTitle();
